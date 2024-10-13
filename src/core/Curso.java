@@ -14,14 +14,38 @@ public class Curso extends Producto {
         this.productosClientes = new ArrayList<>();
 
         this.instructores.add(instructor);
+
+        this.instructores.get(0).addCurso(this);
     }
 
-    public boolean addInstructor(Instructor instructor) {
-        if (!this.instructores.contains(instructor)) {
-            this.instructores.add(instructor);
+    public int getId() {
+        return id;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public boolean addProducto(ProductoCliente producto) {
+        if (!this.productosClientes.contains(producto)) {
+            this.productosClientes.add(producto);
             return true;
         }
         return false;
     }
 
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Curso)) {
+            return false;
+        }
+        Curso curso = (Curso) obj;
+        return this.id == curso.id; // Compara solo el ID
+    }
 }

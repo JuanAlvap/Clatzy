@@ -72,11 +72,11 @@ public class Main {
         clatzy.comprarCurso(clatzy.getCliente(1), clatzy.getCurso(6), date, 150_000);
 
         System.out.println("\n----------------------------------------");
-        System.out.println("El cliente que mas ha pagado en efectivo por cursos es " + clatzy.getClienteMayorIngreso());
+        //System.out.println("El cliente que mas ha pagado en efectivo por cursos es " + clatzy.getClienteMayorIngreso());
         System.out.println("----------------------------------------\n");
 
         System.out.println("------------- BONIFICACION -------------");
-        clatzy.listAll();
+        //clatzy.listAll();
     }
 }
 

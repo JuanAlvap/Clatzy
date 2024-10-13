@@ -10,6 +10,16 @@ public class Instructor extends Persona{
         this.cursos = new ArrayList<>();
     }
 
-    
+    public String getCedula() {
+        return cedula;
+    }
+
+    public boolean addCurso(Curso curso){
+        if(!this.cursos.contains(curso)){
+            this.cursos.add(curso);
+            return true;
+        }
+        return false;
+    }
     
 }
