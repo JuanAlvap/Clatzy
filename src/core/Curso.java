@@ -8,6 +8,18 @@ public class Curso extends Producto {
     private ArrayList<Instructor> instructores;
     private ArrayList<ProductoCliente> productosClientes;
 
+    public Curso(int id, String nombre, LocalDate fechaInicio, float valor, Instructor instructor, LocalDate fechaFin, boolean estadoActivo) {
+        super(id, nombre, fechaInicio, fechaFin, estadoActivo, valor);
+        this.instructores = new ArrayList<>();
+        this.productosClientes = new ArrayList<>();
+
+        this.instructores.add(instructor);
+
+        this.instructores.get(0).addCurso(this);
+    }
+
+    
+    
     public Curso(int id, String nombre, LocalDate fechaInicio, float valor, Instructor instructor) {
         super(id, nombre, fechaInicio, valor);
         this.instructores = new ArrayList<>();

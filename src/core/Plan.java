@@ -8,7 +8,13 @@ public class Plan extends Producto {
     private float valorMaximoCurso;
     private ArrayList<PlanCliente> planes;
 
-    public Plan(String nombre, LocalDate fechaInicio,  float valor, float valorMaximoCurso) {
+    public Plan(String nombre, LocalDate fechaInicio, float valor, float valorMaximoCurso, int id, LocalDate fechaFin, boolean estadoActivo) {
+        super(id, nombre, fechaInicio, fechaFin, estadoActivo, valor);
+        this.valorMaximoCurso = valorMaximoCurso;
+        this.planes = new ArrayList<>();
+    }
+
+    public Plan(String nombre, LocalDate fechaInicio, float valor, float valorMaximoCurso) {
         super(nombre, fechaInicio, valor);
         this.valorMaximoCurso = valorMaximoCurso;
         this.planes = new ArrayList<>();
@@ -26,9 +32,9 @@ public class Plan extends Producto {
     public boolean isEstadoActivo() {
         return super.isEstadoActivo();
     }
-    
-    public boolean addPlanCliente(PlanCliente plan){
-        if(!this.planes.contains(plan)){
+
+    public boolean addPlanCliente(PlanCliente plan) {
+        if (!this.planes.contains(plan)) {
             this.planes.add(plan);
             return true;
         }

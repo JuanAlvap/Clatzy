@@ -29,13 +29,25 @@ public class Cliente extends Persona {
         return false;
     }
 
-    public PlanCliente getPlan(int index) {
+    public boolean getProductoCliente(Curso curso) {
+        for (ProductoCliente producto : this.productos) {
+            if (curso == producto.getCurso()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*public PlanCliente getPlan(int index) {
         for (PlanCliente planc : this.planes) {
             if (planc.getPlan().getId() == index) {
                 return planc;
             }
         }
         return null;
+    }*/
+    public PlanCliente getPlan(int index) {
+        return this.planes.get(index);
     }
 
     public ArrayList<ProductoCliente> getProductos() {
@@ -52,6 +64,31 @@ public class Cliente extends Persona {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public boolean estado() {
+        for (PlanCliente plan : this.planes) {
+            if (plan.isEstadoActivo()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public PlanCliente getPlan() {
+        for (PlanCliente plan : this.planes) {
+            if (plan.isEstadoActivo()) {
+                return plan;
+            }
+        }
+        return null;
+    }
+
+    public boolean hasEstadoActivo() {
+        for (PlanCliente plan : this.planes) {
+            return plan.isEstadoActivo();
+        }
+        return false;
     }
 
 }
